@@ -2,6 +2,7 @@
 
 Changelog
 
+- Dashboard: Added new widgets like clients size list, best backup day, clients backups weights, etc. (thanks to sakrow)
 - General: Minimum PHP version is now 5.6, the test page have been updated accordingly
 - Jobs report: 
    Include more Levels InitCatalog=V, Catalog=C, VolumeToCatalog=O, DiskToCatalog=d and Data=A (wanderleihuttel)
@@ -14,9 +15,9 @@ Fixed bugs
 
 New features
 
-- 0000204 [enhancement] Provide SHA checksum for Bacula-Web compressed archive
 - 0000186 [feature] Add column "InChanger" in Volumes/Pool
 - 0000197: Add Client and Week size
+- 0000204 [enhancement] Provide SHA checksum for Bacula-Web compressed archive
 
 Translations
 
