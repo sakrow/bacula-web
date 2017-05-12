@@ -1,7 +1,7 @@
 <?php
 /*
   +-------------------------------------------------------------------------+
-  | Copyright 2010-2016, Davide Franco			                            |
+  | Copyright 2010-2017, Davide Franco			                            |
   |                                                                         |
   | This program is free software; you can redistribute it and/or           |
   | modify it under the terms of the GNU General Public License             |
@@ -129,7 +129,11 @@ try {
         
         // Job bytes more easy to read
         $job['jobbytes'] = CUtils::Get_Human_Size($job['jobbytes']);
-        $job['jobfiles'] = CUtils::format_Number($job['jobfiles']);        
+        $job['jobfiles'] = CUtils::format_Number($job['jobfiles']);
+
+        // Format date/time 
+        $job['starttime'] = date( $dbSql->datetime_format, strtotime($job['starttime']));
+        $job['endtime'] = date( $dbSql->datetime_format, strtotime($job['endtime']));
 
         $jobs[]     = $job;
     } // end while

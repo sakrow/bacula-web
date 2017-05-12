@@ -1,8 +1,13 @@
 <?php
 /*
   +-------------------------------------------------------------------------+
+<<<<<<< HEAD
   | Copyright (C) 2004 Juan Luis Frances Jimenez                            |
   | Copyright 2010-2016, Davide Franco                                      |
+=======
+  | Copyright (C) 2004 Juan Luis Frances Jimenez						    |
+  | Copyright 2010-2017, Davide Franco                                      |
+>>>>>>> 0ec2420ff79f5d56485b648ea064cebea18ccf70
   |                                                                         |
   | This program is free software; you can redistribute it and/or           |
   | modify it under the terms of the GNU General Public License             |
@@ -267,7 +272,12 @@ try {
     $result     = CDBUtils::runQuery(CDBQuery::get_Select($statment), $dbSql->db_link);
 
     foreach ($result as $volume) {
-        $last_volumes[] = $volume;
+       if($volume['lastwritten'] != '0000-00-00 00:00:00') {
+          $volume['lastwritten'] = date( $dbSql->datetime_format, strtotime($volume['lastwritten']));
+       }else {
+          $volume['lastwritten'] = 'n/a';
+       }
+       $last_volumes[] = $volume;
     }
 
     $view->assign('volumes_list', $last_volumes);
